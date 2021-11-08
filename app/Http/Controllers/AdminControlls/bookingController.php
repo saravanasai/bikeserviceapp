@@ -3,14 +3,10 @@
 namespace App\Http\Controllers\AdminControlls;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProjectRequest\AddProjectRequest;
-use App\Models\AdminModels\Projects;
-use App\Models\AdminModels\Staff;
-use App\Models\Projects\project_members;
-use App\Service\AdminProjectService;
+use App\Models\AdminModels\Booking;
 use Illuminate\Http\Request;
 
-class AdminProjectsController extends Controller
+class bookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +15,7 @@ class AdminProjectsController extends Controller
      */
     public function index()
     {
-        //methode to view a index page for projects
-        return view('projects.index');
+        return view('booking.index');
     }
 
     /**
@@ -30,10 +25,7 @@ class AdminProjectsController extends Controller
      */
     public function create()
     {
-        //this methode shows the new project creation form
-        $developers = Staff::all();
-        // dd($developers);
-        return view('projects.create', ["developers" => $developers]);
+        return view('booking.create', ["bookings" => Booking::where('booking_status', 1)->paginate(5)]);
     }
 
     /**
@@ -42,25 +34,9 @@ class AdminProjectsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AddProjectRequest $request,AdminProjectService $service)
+    public function store(Request $request)
     {
-
-        if($service->add_new_project($request))
-        {
-            $notification = array(
-                'message' => 'Project created successfully!',
-                'alert-type' => 'success'
-            );
-            return redirect()->back()->with($notification);
-        }else {
-            $notification = array(
-                'message' => 'Something Looks Wrong Check All Inputs!',
-                'alert-type' => 'error'
-            );
-            return redirect()->back()->with($notification);
-        }
-
-
+        //
     }
 
     /**

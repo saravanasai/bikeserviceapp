@@ -1,14 +1,11 @@
 <?php
 
-use App\Http\Controllers\AdminControlls\AdminCurrentProjectsController;
+
 use App\Http\Controllers\AdminControlls\AdminLoginController;
-use App\Http\Controllers\AdminControlls\AdminProjectsController;
-use App\Http\Controllers\AdminControlls\AdminStaffController;
-use App\Http\Controllers\AdminControlls\AdminStaffListController;
-use App\Models\AdminModels\Projects;
-use App\Models\AdminModels\Staff;
+use App\Http\Controllers\AdminControlls\bookingController;
+use App\Models\AdminModels\User;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,18 +32,15 @@ Route::post('/', [AdminLoginController::class, 'login'])->name('admin.login');
 Route::prefix('admin')->middleware('is_admin')->group(function () {
     Route::view('dashboard', 'masterDashboard')->name('admin.dashboard');
     Route::post('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
-    Route::resource('projects', AdminProjectsController::class);
-    Route::resource('Currentprojects', AdminCurrentProjectsController::class);
 
-    //route resource to handle staff creation and more
-    Route::resource('staffs', AdminStaffController::class);
-    Route::resource('staffsList', AdminStaffListController::class);
+    //route for booking management
+    Route::resource('booking', bookingController::class);
 });
 
 
 //test route section
 Route::get('/test', function () {
 
-    $developers = Staff::all();
-    return view('test', ["developers" => $developers]);
+    $users = User::all();
+    return view('test', ["users" => $users]);
 });

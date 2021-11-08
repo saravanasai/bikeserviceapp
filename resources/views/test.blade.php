@@ -10,12 +10,10 @@
 
     <ul>
 
-        @foreach ($developers as $developer)
-        <h2>{{$developer->name}}</h2>
-        <h2>{{$developer->staff_Role->role_name}}</h2>
-        <h2>{{$developer->projects->count()}}</h2>
-        @foreach ($developer->projects as $project_details )
-        <li>{{$project_details->project_tittle}}</li>
+        @foreach ($users as $user)
+        <h2>{{$user->email}}</h2>
+        @foreach ($user->bookings as $booking )
+        <li>{{$booking->complaint}}</li><span>{{$booking->service_on_date}}-{{$booking->status->status}}</span>
         @endforeach
         @endforeach
     </ul>

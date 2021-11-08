@@ -7,7 +7,7 @@
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="../index.html">
             {{-- <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="..."> --}}
-            <h1 class="text-dark">Exciteon</h1>
+            <h1 class="text-dark">Bike Service</h1>
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -55,7 +55,7 @@
                     <div class="col-6 collapse-brand">
                         <a href="../index.html">
                             {{-- <img src="../assets/img/brand/blue.png"> --}}
-                            EXCITEON
+                            Bike Service
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -72,16 +72,21 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('admin/projects*') ? 'active' : ""}}" href="{{route('projects.index')}}">
-                        <i class="ni ni-tv-2 text-primary"></i>Project Management
+                    <a class="nav-link {{ request()->is('admin/booking*') ? 'active' : ""}}" href="{{route('booking.index')}}">
+                        <i class="ni ni-tv-2 text-primary"></i>Booking Management
                     </a>
+                </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link {{ request()->is('admin/staffs*') ? 'active' : ""}} " href="{{route('staffs.index')}}">
+                <i class="ni ni-badge text-success"></i> Service Management
+                </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('admin/staffs*') ? 'active' : ""}} " href="{{route('staffs.index')}}">
-                        <i class="ni ni-badge text-success"></i> Staff Managment
+                        <i class="ni ni-badge text-success"></i> Performance Management
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a class="nav-link " href="../examples/maps.html">
                         <i class="ni ni-pin-3 text-orange"></i> Maps
                     </a>
@@ -105,7 +110,7 @@
                     <a class="nav-link" href="../examples/register.html">
                         <i class="ni ni-circle-08 text-pink"></i> Register
                     </a>
-                </li>
+                </li> --}}
             </ul>
             <!-- Divider -->
             <hr class="my-3">
