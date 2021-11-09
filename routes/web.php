@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\AdminControlls\AdminLoginController;
 use App\Http\Controllers\AdminControlls\bookingController;
+use App\Http\Controllers\BookingControll\BookingOnProcessController;
 use App\Models\AdminModels\User;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,7 @@ Route::prefix('admin')->middleware('is_admin')->group(function () {
 
     //route for booking management
     Route::resource('booking', bookingController::class);
+    Route::resource('bookingOnProcess', BookingOnProcessController::class);
 });
 
 

@@ -24,6 +24,7 @@ class BookingFactory extends Factory
         return [
             "booking_user" => rand(1, 15),
             "complaint" => $this->faker->text($maxNbChars = 75),
+            "service_required" => rand(1, 3),
             "service_on_date" => $this->faker->date($format = 'Y-m-d', $max = 'now'),
             "booking_status" => rand(1, 3),
         ];

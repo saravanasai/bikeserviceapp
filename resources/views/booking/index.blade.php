@@ -17,8 +17,8 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex">
-                <a href="{{route('booking.create')}}" class="btn btn-primary"><i class="fas fa-plus px-1"></i>New Bookings</a>
-                {{-- <a href="{{route('Currentprojects.index')}}" class="btn btn-warning"><i class="fas fa-laptop-code px-1"></i>Current Projects</a> --}}
+                <a href="{{route('booking.create')}}" class="btn btn-primary"><i class="bullet-list-67 px-1"></i>New Bookings</a>
+                <a href="{{route('bookingOnProcess.index')}}" class="btn btn-warning"><i class="fas fa-laptop-code px-1"></i>On Service</a>
                 <a href="#" class="btn btn-success"><i class="fas fa-bezier-curve px-2"></i>Projects On Live</a>
             </div>
         </div>

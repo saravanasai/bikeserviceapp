@@ -18,6 +18,9 @@ class StatusSeeder extends Seeder
             "status" => "Pending"
         ]);
         Status::create([
+            "status" => "On Process"
+        ]);
+        Status::create([
             "status" => "Ready To Delivery"
         ]);
         Status::create([

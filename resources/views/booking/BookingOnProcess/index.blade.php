@@ -1,9 +1,9 @@
 @extends('Layouts.Master')
 @section('top-section')
-<div class="container">
+<div class="container mt-3">
     <div class="row px-4">
         <div class="col-lg-6 col-4">
-            <h6 class="h2 text-white d-inline-block mb-0">New Bookings</h6>
+            <h6 class="h2 text-white d-inline-block mb-0">Service On Process</h6>
         </div>
         <div class="col-lg-6 col-4 text-right">
             <a href="{{route('admin.dashboard')}}" class="btn btn-sm btn-neutral">Home</a>

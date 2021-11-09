@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\AdminControlls;
+namespace App\Http\Controllers\BookingControll;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminModels\Booking;
 use Illuminate\Http\Request;
 
-class bookingController extends Controller
+class BookingOnProcessController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class bookingController extends Controller
      */
     public function index()
     {
-        return view('booking.index');
+        return view('booking.BookingOnProcess.index', ["bookings" => Booking::where('booking_status', 2)->paginate(5)]);
     }
 
     /**
@@ -25,7 +25,7 @@ class bookingController extends Controller
      */
     public function create()
     {
-        return view('booking.create', ["bookings" => Booking::where('booking_status', 1)->paginate(5)]);
+        //
     }
 
     /**
@@ -47,7 +47,7 @@ class bookingController extends Controller
      */
     public function show($id)
     {
-        return view('booking.show', ["booking" => Booking::find($id)]);
+        //
     }
 
     /**
@@ -70,11 +70,7 @@ class bookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $booking = Booking::find($id);
-        $booking->booking_status = 2;
-        $booking->save();
-        toastr()->success('Booking Accepted And Ready To Process');
-        return redirect()->route('booking.create');
+        //
     }
 
     /**

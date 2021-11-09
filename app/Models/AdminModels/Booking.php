@@ -13,6 +13,7 @@ class Booking extends Model
     protected $fillable = [
         "booking_user",
         "complaint",
+        "service_required",
         "service_on_date",
         "booking_status",
     ];
@@ -26,5 +27,10 @@ class Booking extends Model
     public function status()
     {
         return $this->belongsTo(Status::class, 'booking_status', 'id');
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class, 'service_required', 'id');
     }
 }
