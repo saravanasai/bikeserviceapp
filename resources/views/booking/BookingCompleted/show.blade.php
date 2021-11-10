@@ -7,7 +7,7 @@
         </div>
         <div class="col-lg-6 col-4 text-right">
             <a href="{{route('admin.dashboard')}}" class="btn btn-sm btn-neutral">Home</a>
-            <a href="{{route('bookingOnProcess.index')}}" class="btn btn-sm btn-neutral">Back</a>
+            <a href="{{route('bookingOnCompleted.index')}}" class="btn btn-sm btn-neutral">Back</a>
         </div>
     </div>
 </div>
@@ -98,10 +98,10 @@
                 <div class="card-body">
                     <h5 class="card-title display-5">Compliant</h5>
                     <p class="card-text lead">{{$booking->complaint }}</p>
-                    <form action="{{route('bookingOnProcess.update',$booking->id)}}" method="post">
+                    <form action="{{route('bookingOnCompleted.update',$booking->id)}}" method="post">
                         @csrf
                         @method('PUT')
-                        <button type="submit" class="btn btn-success">Complete Service</button>
+                        <button type="submit" class="btn btn-dark">Deliver</button>
                     </form>
 
                 </div>

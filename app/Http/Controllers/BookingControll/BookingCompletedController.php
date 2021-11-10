@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AdminModels\Booking;
 use Illuminate\Http\Request;
 
-class BookingOnProcessController extends Controller
+class BookingCompletedController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class BookingOnProcessController extends Controller
      */
     public function index()
     {
-        return view('booking.BookingOnProcess.index', ["bookings" => Booking::where('booking_status', 2)->paginate(5)]);
+        return view('booking.BookingCompleted.index', ["bookings" => Booking::where('booking_status', 3)->paginate(5)]);
     }
 
     /**
@@ -47,7 +47,7 @@ class BookingOnProcessController extends Controller
      */
     public function show($id)
     {
-        return view('booking.BookingOnProcess.show', ["booking" => Booking::find($id)]);
+        return view('booking.BookingCompleted.show', ["booking" => Booking::find($id)]);
     }
 
     /**
@@ -71,10 +71,10 @@ class BookingOnProcessController extends Controller
     public function update(Request $request, $id)
     {
         $booking = Booking::find($id);
-        $booking->booking_status = 3;
+        $booking->booking_status = 4;
         $booking->save();
-        toastr()->success('Service Completed Ready For Delivery');
-        return redirect()->route('bookingOnProcess.index');
+        toastr()->success('Bike Delivered');
+        return redirect()->route('bookingOnCompleted.index');
     }
 
     /**

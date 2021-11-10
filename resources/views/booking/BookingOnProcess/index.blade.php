@@ -23,10 +23,9 @@
                             <tr>
                                 <th>Sno</th>
                                 <th>Name</th>
-                                <th>Email</th>
                                 <th>Phone</th>
                                 <th>Date</th>
-                                <th>Booked</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -35,11 +34,14 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$booking->user->name}}</td>
-                                <td>{{$booking->user->email}}</td>
                                 <td>{{$booking->user->phonenumber}}</td>
                                 <td>{{$booking->service_on_date}}</td>
-                                <td><span class="badge badge-default">{{$booking->created_at->diffForHumans()}}</span></td>
-                                <td><a href="{{route('booking.show',$booking->id)}}" class="btn btn-sm btn-warning"><i class="far fa-eye px-1"></i>view</a></td>
+                                <td><button type="button" class="btn btn-sm btn-default">
+                                        <span>{{$booking->status->status}}</span>
+                                        <span class="badge badge-primary"></span>
+                                    </button></td>
+                                {{-- <td><span class="badge badge-default">{{$booking->created_at->diffForHumans()}}</span></td> --}}
+                                <td><a href="{{route('bookingOnProcess.show',$booking->id)}}" class="btn btn-sm btn-warning"><i class="far fa-eye px-1"></i>Service Info</a></td>
                             </tr>
                             @endforeach
                         </tbody>

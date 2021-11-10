@@ -1,7 +1,7 @@
 @extends('Layouts.Master')
 @section('top-section')
 <div class="container">
-    <div class="row px-4">
+    <div class="row px-4 mt-3">
         <div class="col-lg-6 col-4">
             <h6 class="h2 text-white d-inline-block mb-0">Bookings</h6>
         </div>
@@ -17,9 +17,9 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex">
-                <a href="{{route('booking.create')}}" class="btn btn-primary"><i class="bullet-list-67 px-1"></i>New Bookings</a>
+                <a href="{{route('booking.create')}}" class="btn btn-primary"><i class="fas fa-file-alt px-1"></i>New Bookings</a>
                 <a href="{{route('bookingOnProcess.index')}}" class="btn btn-warning"><i class="fas fa-laptop-code px-1"></i>On Service</a>
-                <a href="#" class="btn btn-success"><i class="fas fa-bezier-curve px-2"></i>Projects On Live</a>
+                <a href="{{route('bookingOnCompleted.index')}}" class="btn btn-success"><i class="fas fa-bezier-curve px-2"></i>Ready To Deliver</a>
             </div>
         </div>
     </div>
