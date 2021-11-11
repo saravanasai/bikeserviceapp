@@ -27,6 +27,7 @@ class UserFactory extends Factory
             "email" => $this->faker->email,
             "phonenumber" => $this->faker->phoneNumber,
             "password" => Hash::make(1412),
+            "remember_token" => "jahsdjfhadansdkkndnahsdhfansdfhadnfandfan",
             "booking_status" => 0
         ];
     }

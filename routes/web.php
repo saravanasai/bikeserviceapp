@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminControlls\AdminLoginController;
 use App\Http\Controllers\AdminControlls\bookingController;
 use App\Http\Controllers\BookingControll\BookingCompletedController;
 use App\Http\Controllers\BookingControll\BookingOnProcessController;
+use App\Http\Controllers\FrontEndControll\UserController;
 use App\Models\AdminModels\User;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +29,9 @@ Route::get('/profile', function () {
 });
 
 
-Route::view('/', 'pages.login');
+Route::view('/home', 'pages.login');
 //route section to handle the logins of admin
-Route::post('/', [AdminLoginController::class, 'login'])->name('admin.login');
+Route::post('/home', [AdminLoginController::class, 'login'])->name('admin.login');
 Route::prefix('admin')->middleware('is_admin')->group(function () {
     Route::view('dashboard', 'masterDashboard')->name('admin.dashboard');
     Route::post('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
@@ -41,7 +42,14 @@ Route::prefix('admin')->middleware('is_admin')->group(function () {
     Route::resource('bookingOnCompleted', BookingCompletedController::class);
 });
 
+//routes for frontend user pages
+Route::get('/', [UserController::class, 'index'])->name('home');
+Route::get('/user/signup', [UserController::class, 'signup'])->name('user.signup');
+Route::post('users/signup', [UserController::class, 'registerUser'])->name('user.register');
 
+Route::view('/user/login', 'pages.frontend.Login')->name('user.login');
+
+Route::post('users/logout', [UserController::class, 'logout'])->name('user.logout');
 //test route section
 Route::get('/test', function () {
 

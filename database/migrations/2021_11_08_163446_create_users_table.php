@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('phonenumber');
             $table->string('password');
+            $table->string('remember_token', 100)->default('null');
             $table->tinyInteger('booking_status')->default(0)->comment('0 means no booking 1 Means active booking');
             $table->timestamps();
         });
