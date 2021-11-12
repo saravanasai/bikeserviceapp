@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{asset('frontend/css/styles.css')}}" rel="stylesheet" />
+    {{-- toaster notification --}}
+    @toastr_css
 </head>
 <body>
     @include('Layouts.frontendLayout.navBar')
@@ -28,10 +30,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="{{asset('frontend/js/scripts.js')}}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    @toastr_js
+    @toastr_render
+    @yield('js')
 </body>
 </html>

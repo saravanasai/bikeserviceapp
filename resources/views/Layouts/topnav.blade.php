@@ -22,7 +22,7 @@
                     <div class=" dropdown-header noti-title">
                         <h6 class="text-overflow m-0">Welcome!</h6>
                     </div>
-                    <a href="../examples/profile.html" class="dropdown-item">
+                    {{-- <a href="../examples/profile.html" class="dropdown-item">
                         <i class="ni ni-single-02"></i>
                         <span>My profile</span>
                     </a>
@@ -37,7 +37,7 @@
                     <a href="../examples/profile.html" class="dropdown-item">
                         <i class="ni ni-support-16"></i>
                         <span>Support</span>
-                    </a>
+                    </a> --}}
                     <div class="dropdown-divider"></div>
                     <form action="{{route('admin.logout')}}" method="POST">
                         @csrf
@@ -52,4 +52,3 @@
         </ul>
     </div>
 </nav>
-

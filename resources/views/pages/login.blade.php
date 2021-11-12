@@ -4,8 +4,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
         <div class="container px-4">
-            <a class="navbar-brand " href="../index.html">
-                <h1 class="text-white">EXCITEON</h1>
+            <a class="navbar-brand " href="{{route('home')}}">
+                <h1 class="text-white">John Bike Service</h1>
                 {{-- <img src="../assets/img/brand/white.png" /> --}}
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
                 </div>
                 <!-- Navbar items -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link nav-link-icon" href="#">
                             <i class="ni ni-circle-08"></i>
                             <span class="nav-link-inner--text">User Login</span>
@@ -41,7 +41,7 @@
                             <i class="ni ni-circle-08"></i>
                             <span class="nav-link-inner--text">Home</span>
                         </a>
-                    </li>
+                    </li> --}}
                     {{-- <li class="nav-item">
               <a class="nav-link nav-link-icon" href="../examples/login.html">
                 <i class="ni ni-key-25"></i>
@@ -65,7 +65,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-5 col-md-6">
                         <h1 class="text-white">Welcome!</h1>
-                        <p class="text-lead text-light">Tree of Technology</p>
+                        {{-- <p class="text-lead text-light">Tree of Technology</p> --}}
                     </div>
                 </div>
             </div>

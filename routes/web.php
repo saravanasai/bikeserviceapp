@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminControlls\bookingController;
 use App\Http\Controllers\BookingControll\BookingCompletedController;
 use App\Http\Controllers\BookingControll\BookingOnProcessController;
 use App\Http\Controllers\FrontEndControll\UserController;
+use App\Models\AdminModels\Booking;
 use App\Models\AdminModels\User;
 use Illuminate\Support\Facades\Route;
 
@@ -21,19 +22,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/pages', function () {
-    return view('pages.table');
-});
-Route::get('/profile', function () {
-    return view('pages.profile');
-});
-
-
 Route::view('/home', 'pages.login');
 //route section to handle the logins of admin
 Route::post('/home', [AdminLoginController::class, 'login'])->name('admin.login');
 Route::prefix('admin')->middleware('is_admin')->group(function () {
-    Route::view('dashboard', 'masterDashboard')->name('admin.dashboard');
+    Route::get('dashboard', function () {
+
+        $newBooking = Booking::where('booking_status', 1)->count();
+        $onprocess = Booking::where('booking_status', 2)->count();
+        $readytodeliver = Booking::where('booking_status', 3)->count();
+        $delivered = Booking::where('booking_status', 4)->count();
+        return view('masterDashboard', ["newBooking" => $newBooking, "onprocess" => $onprocess, "readytodeliver" => $readytodeliver, "delivered" => $delivered]);
+    })->name('admin.dashboard');
     Route::post('logout', [AdminLoginController::class, 'logout'])->name('admin.logout');
 
     //route for booking management
@@ -46,9 +46,10 @@ Route::prefix('admin')->middleware('is_admin')->group(function () {
 Route::get('/', [UserController::class, 'index'])->name('home');
 Route::get('/user/signup', [UserController::class, 'signup'])->name('user.signup');
 Route::post('users/signup', [UserController::class, 'registerUser'])->name('user.register');
-
+Route::post('users/register/booking', [UserController::class, 'userBooking'])->name('user.bookings');
 Route::view('/user/login', 'pages.frontend.Login')->name('user.login');
-
+Route::get('/user/mybookings', [UserController::class, 'userMyBookings'])->name('user.mybookings');
+Route::post('users/Login/request', [UserController::class, 'userLogin'])->name('user.Loginrequest');
 Route::post('users/logout', [UserController::class, 'logout'])->name('user.logout');
 //test route section
 Route::get('/test', function () {
